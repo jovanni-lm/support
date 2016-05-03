@@ -1,0 +1,12 @@
+!!!
+%html
+  %head
+    %meta{ content: 'text/html; charset=UTF-8', 'http-equiv' => 'Content-Type' }
+  %body
+    %h1
+      Dear #{@issue.name}, your issue #{@issue.subject} was successfully created
+    %span See links:
+    %ul
+      %li= link_to 'View', issue_url(@issue)
+      %li= link_to 'Edit', edit_issue_url(@issue)
+      %li= link_to 'History', history_issue_url(@issue)

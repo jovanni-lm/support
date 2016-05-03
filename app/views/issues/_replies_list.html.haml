@@ -1,0 +1,5 @@
+.replies
+  %b= 'Replies:'
+  %ul.list-group
+    - @issue.replies.each do |reply|
+      %li.list-group-item= reply.answer

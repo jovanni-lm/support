@@ -1,0 +1,34 @@
+- model_class = Issue
+= page_entries_info @issues
+%table.table.table-striped
+  %thead
+    %tr
+      %th= model_class.human_attribute_name(:subject)
+      %th= model_class.human_attribute_name(:body)
+      %th= model_class.human_attribute_name(:status)
+      %th= model_class.human_attribute_name(:staff_id)
+      %th= model_class.human_attribute_name(:task_id)
+      %th= model_class.human_attribute_name(:created_at)
+      %th= t '.actions', default: t('helpers.actions')
+  %tbody
+    - @issues.each do |issue|
+      %tr
+        %td= link_to issue.subject, issue_path(issue)
+        %td= truncate(issue.body, length: 300)
+        %td= Status.find(issue.status).title
+        %td= issue.staff_id ? Staff.find(issue.staff_id).username : '-'
+        %td= issue.task_id
+        %td= l issue.created_at
+        %td
+          = link_to t('.edit',
+          default: t('helpers.links.edit')), edit_issue_path(issue),
+          class: 'btn btn-default btn-xs'
+          = link_to t('.destroy',
+          default: t('helpers.links.destroy')),
+          issue_path(issue), method: :delete,
+          data: { confirm: t('.confirm',
+            default: t('helpers.links.confirm',
+            default: 'Are you sure?')) },
+          class: 'btn btn-xs btn-danger'
+
+= will_paginate @issues

@@ -1,0 +1,29 @@
+.page-header
+  %h1 History for Issue #{@issue.subject}
+
+= render 'tabs'
+- if !@versions.empty?
+  %table.table.table-striped
+    %thead
+      %tr
+        %th= 'Date'
+        %th= 'Status'
+        %th= 'Staff'
+    %tbody
+      %tr
+        %td= @versions.last.created_at
+        %td= Status.find(@issue.status_id).title
+        %td= @issue.staff_id.nil? ? '-' : Staff.find(@issue.staff_id).username
+
+    - @versions.reverse.each do |version|
+      - unless version.reify.nil?
+        %tr
+          %td= version.created_at
+          %td= Status.find(version.reify.status_id).title
+          - if version.reify.staff_id.nil?
+            %td -
+          - else
+            %td= Staff.find(version.reify.staff_id).username
+
+- else
+  %p This item does not have any registered version.

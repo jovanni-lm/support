@@ -1,0 +1,44 @@
+- model_class = Issue
+.page-header
+  %h1 Issue #{@issue.subject}
+
+= render 'tabs'
+
+.content
+  %p
+    %strong= model_class.human_attribute_name(:name) + ':'
+    %br
+    = @issue.name
+  %p
+    %strong= model_class.human_attribute_name(:email) + ':'
+    %br
+    = @issue.email
+  %p
+    %strong= model_class.human_attribute_name(:body) + ':'
+    %br
+    = @issue.body
+  %p
+    %strong= model_class.human_attribute_name(:status) + ':'
+    %br
+    = Status.find(@issue.status).title
+  %p
+    %strong= model_class.human_attribute_name(:task_id) + ':'
+    %br
+    = @issue.task_id
+  %p
+    %strong= model_class.human_attribute_name(:staff_id) + ':'
+    %br
+    = @issue.staff_id ? Staff.find(@issue.staff_id).username : '-'
+
+  = link_to 'Back', issues_path, class: 'btn btn-default'
+  = link_to 'Edit', edit_issue_path(@issue), class: 'btn btn-default'
+  = link_to 'Delete', issue_path(@issue), method: 'delete',
+  data: { confirm: t('.confirm',
+    default: t('helpers.links.confirm',
+    default: 'Are you sure?')) },
+  class: 'btn btn-danger'
+
+  = render 'replies_list'
+
+  - if staff_signed_in?
+    = render 'reply_issue_form'

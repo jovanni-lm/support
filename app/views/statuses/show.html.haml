@@ -1,0 +1,13 @@
+- model_class = Status
+.page-header
+  %h1= t '.title', default: model_class.model_name.human.titleize
+
+%p
+  %strong= model_class.human_attribute_name(:title) + ':'
+  %br
+  = @status.title
+
+= link_to t('.back', default: t('helpers.links.back')), statuses_path,
+class: 'btn btn-default'
+= link_to t('.edit', default: t('helpers.links.edit')),
+edit_status_path(@status), class: 'btn btn-default'

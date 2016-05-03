@@ -1,0 +1,16 @@
+- model_class = Status
+.page-header
+  = render template: 'statuses/new'
+  %h1= t '.title', default: model_class.model_name.human.pluralize.titleize
+%table.table.table-striped
+  %thead
+    %tr
+      %th= model_class.human_attribute_name(:title)
+      %th= t '.actions', default: t('helpers.actions')
+  %tbody
+    - @statuses.each do |status|
+      %tr
+        %td= status.title
+        %td
+          = link_to t('.edit', default: t('helpers.links.edit')),
+          edit_status_path(status), class: 'btn btn-default btn-xs'

@@ -1,0 +1,9 @@
+!!!
+%html
+  %head
+    %meta{ content: 'text/html; charset=UTF-8', 'http-equiv' => 'Content-Type' }
+  %body
+    %h1
+      Dear #{@issue.name}, your issue #{@issue.subject} was replied:
+    %span= @reply.answer
+    %span= link_to 'Issue link', issue_url(@issue)

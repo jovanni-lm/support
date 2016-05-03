@@ -1,0 +1,7 @@
+%ul.nav.nav-tabs
+  %li{ class: ('active' if params[:action] == 'show') }
+    = link_to 'Issue', @issue
+  %li{ class: ('active' if params[:action] == 'edit') }
+    = link_to 'Edit', edit_issue_path(@issue)
+  %li{ class: ('active' if params[:action] == 'history') }
+    = link_to 'History', history_issue_path(@issue)

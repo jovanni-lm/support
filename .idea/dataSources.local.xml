@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Rails support: test" uuid="37128254-69f0-4d09-a9e5-9931c6c24eb3">
+      <user-name>pguser</user-name>
+      <user-password>df9bdf98df99df9edf9b</user-password>
+    </data-source>
+    <data-source name="Rails support: production" uuid="1868aafc-fd90-4541-8726-1128c7aae843">
+      <user-name>support</user-name>
+      <user-password>df96df8fdf97df8adfefdfe4dffcdff1df8ddff9dfffdffadffadfe5dff8dffedff5dfeedfebdffedfebdfe8dfebdff9dfefdff5dffadfebdff9dff9dffddfe5dff8dfeedf8ddff7df8adf8fdf94</user-password>
+    </data-source>
+    <data-source name="Rails support: development" uuid="29eee6e4-75a7-456e-b22a-3f3ec4294787">
+      <first-sync>true</first-sync>
+      <user-name>pguser</user-name>
+      <user-password>df9bdf98df99df9edf9b</user-password>
+    </data-source>
+  </component>
+</project>
